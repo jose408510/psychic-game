@@ -38,21 +38,30 @@
 
     document.onkeyup = function(event) {
       var userGuess = event.key.toLowerCase();
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-      
+      var computerGuess  = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      if ( userGuess === computerGuess) {
+        wins++  
+      } else {
+          guessesLeft-- 
+      }
+    if ( guessesLeft === 0 )
+{
+    losses++ 
+    guessesLeft = 9 
+}
       //CONSOLE LOGGING GUESSES
       console.log("Your Guesses so far: " + userGuess);
       console.log(computerGuess);
       
       //WIN-LOSS LOGIC
-    
+
 
 
       //STILL ON KEYUP
       youChose.textContent = userGuess;
       winsCount.textContent = wins;
       lossesCount.textContent = losses;
-      guessLeft.textContent = 9;
+      guessLeft.textContent = guessesLeft; 
     };
 
   </script>
