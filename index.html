@@ -1,39 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=h, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Psychic Game</title>
+  <meta charset="UTF-8">
+  <title>psychic Game 
+  </title>
 </head>
+
 <body>
-    <h1><strong>The Psychic Game</strong></h1>
+    
+    <h1><strong>Psychic Game</strong></h1>
+
+  <h3>Guess what letter im thinking of: <span id="playerChoice"></span></h3>
+
+  <h3>Wins: <span id="winsCount"></span></h3>
+
+  <h3>Losses: <span id="lossesCount"></span></h3>
+
+  <h3>Guesses left: <span id="guessLeft"></span></h3>
+
+  <h3>Your Guesses so far: <span id="youChose"></span>
+  </h3>
+  
+  <div id="game">
+
+  </div>
+
+  <script type="text/javascript">
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 9 ;
+    var soFar = []; 
 
 
-<h3>Guess what letter I'm thinking of</h3>
-<h3>Wins:</h3>
-<h3>Losses:</h3>
-<h3>Guesses Left:</h3>
-<h3>Your Guesses so far:</h3>
-
-<div id="games">
-
-</div>
-
-<script type="text/javascript">
-
-// Var characters 
-var computerChoice = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
-var wins = 0;
-var losses = 0;
-var guessLeft = 9;
-var pickedLetters = [];
 
 
+    document.onkeyup = function(event) {
+      var userGuess = event.key.toLowerCase();
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      
+      //CONSOLE LOGGING GUESSES
+      console.log("Your Guesses so far: " + userGuess);
+      console.log(computerGuess);
+      
+      //WIN-LOSS LOGIC
+    
 
 
+      //STILL ON KEYUP
+      youChose.textContent = userGuess;
+      winsCount.textContent = wins;
+      lossesCount.textContent = losses;
+      guessLeft.textContent = 9;
+    };
 
+  </script>
+
+</body>
+
+</html>
 
 
 
